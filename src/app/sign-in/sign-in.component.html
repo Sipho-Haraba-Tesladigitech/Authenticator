@@ -1,0 +1,35 @@
+<div *ngIf="!isforgotPassword && !isResetPassword">
+    <h2>Sign In</h2>
+    
+    <label for="email">Email</label><br>
+    <input type="text" name="email" id="email" [formControl]="email"><br>
+    
+    <label for="password">Password</label><br>
+    <input type="text" name="password" id="password" [formControl]="password"><br><br>
+
+    <button name="sign-in-btn" id="sign-in-btn" (click)="signIn()">Sign In</button>
+    <button name="forgot-btn" id="forgot-btn" (click)="isforgotPassword = true">Forgot Password</button><br>
+    <p>Or</p>
+    <button name="sign-up-btn" id="sign-up-btn" (click)="createAccount()">Sign Up</button>
+</div>
+
+<div *ngIf="isforgotPassword">
+    <h2>Forgot Password</h2>
+    
+    <label for="email">Email</label><br>
+    <input type="text" name="email" id="email" [formControl]="email"><br>
+
+    <button name="sign-in-btn" id="sign-in-btn" (click)="forgotPassword()">Next</button>
+</div>
+
+<div *ngIf="isResetPassword">
+    <h2>Reset Password</h2>
+    
+    <label for="code">Code</label><br>
+    <input type="text" name="code" id="code" [formControl]="code"><br>
+    
+    <label for="password">New Password</label><br>
+    <input type="text" name="password" id="password" [formControl]="password" value=""><br><br>
+
+    <button name="reset-btn" id="reset-btn" (click)="setNewPassword()">Reset Password</button>
+</div>

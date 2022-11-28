@@ -1,0 +1,46 @@
+<h1>Sipho Robert Haraba Progress</h1>
+<!--  -->
+<div *ngIf="isDataLoaded">
+  <label for="dd">Topic</label>
+  <!-- Drop down -->
+  <select name="dd" id="dd">
+    <option value="default">----</option>
+    <option *ngFor="let task of taskObj" value="task.topic">{{task.topic}}</option>
+  </select><br><br>
+
+  <div class="mat-elevation-z8">
+    <table #myTable mat-table [dataSource]="dataSource">
+
+      <!-- Topic Column -->
+      <ng-container matColumnDef="topic">
+        <th mat-header-cell *matHeaderCellDef> Topic </th>
+        <td mat-cell *matCellDef="let element"> {{element.topic}} </td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <!-- Completion Date Column -->
+      <ng-container matColumnDef="completionDate">
+        <th mat-header-cell *matHeaderCellDef> Completion Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.completionDate}} </td>
+      </ng-container>
+      <!-- Header and rows declaration -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+  </div><br>
+</div>
+<h1 *ngIf="!isDataLoaded">Loading...</h1>
+<button *ngIf="canAddTasks" (click)="openDialog()">Add Task</button><br><br>
+<button (click)="signOut()">Sign Out</button>

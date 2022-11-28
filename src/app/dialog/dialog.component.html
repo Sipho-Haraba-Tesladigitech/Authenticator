@@ -1,0 +1,18 @@
+<form>
+    <h3>New Task</h3>
+    <label for="fname">Topic</label><br>
+    <input type="text" name="topic" id="topic" [formControl]="topic"><br>
+
+    <label for="title">Title</label><br>
+    <input type="text" name="title" id="title" [formControl]="title"><br>
+
+    <label for="status">Status</label><br>
+    <input type="text" name="status" id="status" [formControl]="status"><br>
+
+    <label for="password">Completion Date</label><br>
+    <input type="text" name="completionDate" id="completionDate" [formControl]="completionDate"><br><br>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add</button>
+    </mat-dialog-actions>
+</form>

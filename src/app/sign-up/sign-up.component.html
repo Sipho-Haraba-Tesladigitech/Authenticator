@@ -1,0 +1,22 @@
+<div *ngIf="!isConfirm">
+    <h2>Sign Up</h2>
+    <label for="fname">First Name</label><br>
+    <input type="text" name="fname" id="fname" [formControl]="fname"><br>
+    
+    <label for="lname">Last Name</label><br>
+    <input type="text" name="lname" id="lname" [formControl]="lname"><br>
+    
+    <label for="email">Email</label><br>
+    <input type="text" name="email" id="email" [formControl]="email"><br>
+    
+    <label for="password">Password</label><br>
+    <input type="text" name="password" id="password" [formControl]="password"><br><br>
+    <button name="sign-up-btn" id="sign-up-btn" (click)="signUp()">Sign Up</button>
+</div>
+<div *ngIf="isConfirm">
+    <h2>Verify Email </h2>
+    <p>Account created successfully, Please check your email and enter the code sent to your email</p>
+    <label for="code">Code</label><br>
+    <input type="text" name="code" id="code" [formControl]="code"><br><br>
+    <button name="verify" id="verify" (click)="verifyUser()">Verify</button>
+</div>
